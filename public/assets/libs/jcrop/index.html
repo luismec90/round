@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Jcrop Demo - Circle Crop</title>
+      <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+      <script src="js/jquery.min.js"></script>
+      <script src="js/jquery.Jcrop.min.js"></script>
+      <script type="text/javascript">
+      jQuery(function($) {
+          $('#target').Jcrop({
+              aspectRatio: 1,
+              minSize: 50,
+              onSelect: applyCoords,
+              onChange: applyCoords
+          });
+      });
+      function applyCoords(c){
+        $("#coords").val("X : " + c.x + ", Y : " + c.y + ", X2 : " + c.x2+ ", Y2 : " + c.y2+ ", W : " + c.w+ ", H : " + c.h)
+      }
+      </script>
+      <link rel="stylesheet" href="css/jquery.Jcrop.min.css" type="text/css" />
+      <style type="text/css">
+        .jcrop-holder div
+        {
+          -webkit-border-radius: 50% !important;
+          -moz-border-radius: 50% !important;
+          border-radius: 50% !important;
+        }
+      </style>
+  </head>
+  <body style="margin:30px;">
+      <div class="container">
+        <div>
+          <input type="text" id="coords" style="width:500px;" />
+          <img src="images/demo.jpg" class="cropImage" id="target" alt="jCrop Circle Area Example" />
+        </div>
+      </div>
+      <div style="padding:10px;">
+        Works with all modern browsers : Chrome, FF, Safari, IE9+ (Cant support IE8 and below)
+        <div style="padding:10px;">
+          <a href="jcrop.zip">Download Zip</a>
+        </div>
+      </div>
+  </body>
+</html>

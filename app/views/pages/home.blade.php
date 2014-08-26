@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="assets/libs/jQueryFileUpload/css/jquery.fileupload-ui.css">
 <!-- CSS adjustments for browsers with JavaScript disabled -->
 <noscript><link rel="stylesheet" href="assets/libs/jQueryFileUpload/css/jquery.fileupload-noscript.css"></noscript>
-<noscript><link rel="stylesheet" href="assets/libs/jQueryFileUpload/css/jquery.fileupload-ui-noscript.css"></noscript>
+<noscript><link rel="stylesheet" href="assets/libs/jQueryFileUpload/css/jquery.fileupload-ui-noscript.css"></noscript
+<!-- jCrop -->
+ <link rel="stylesheet" href="assets/libs/jcrop/css/jquery.Jcrop.min.css" type="text/css" />
 @stop
 
 @section('js')
@@ -46,8 +48,15 @@
 <script src="assets/libs/jQueryFileUpload/js/jquery.fileupload-validate.js"></script>
 <!-- The File Upload user interface plugin -->
 <script src="assets/libs/jQueryFileUpload/js/jquery.fileupload-ui.js"></script>
-<!-- The main application script -->
+<!-- Plugin set-up -->
 <script src="assets/libs/jQueryFileUpload/js/main.js"></script>
+
+<!-- jCrop -->
+<script src="assets/libs/jcrop/js/jquery.Jcrop.min.js"></script>
+
+<!-- The main application script -->
+<script src="assets/js/global.js"></script>
+
 <!-- The XDomainRequest Transport is included for cross-domain file deletion for IE 8 and IE 9 -->
 <!--[if (gte IE 8)&(lt IE 10)]>
 <script src="assets/libs/jQueryFileUpload/js/cors/jquery.xdr-transport.js"></script>
@@ -177,6 +186,10 @@
     <i class="glyphicon glyphicon-download-alt"></i>
     <span>Descargar</span>
     </a>
+    <a  class="btn btn-primary arreglar">
+    <i class="glyphicon glyphicon-pencil"></i>
+    <span>Arreglar</span>
+    </a>
     {% }
     if (file.deleteUrl) { %}
     <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
@@ -194,4 +207,21 @@
     </tr>
     {% } %}
 </script>
+<div class="modal fade" id="modalArreglar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="myModalLabel">Arreglar Imágen</h4>
+            </div>
+            <div class="modal-body text-center">
+                <img id="target" class="cropImage" src="{{asset('testImages/img1.jpg')}}" width="550" height="400">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
 @stop

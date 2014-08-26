@@ -42,7 +42,7 @@ class ImageController extends \BaseController {
                 $W = $detector->getW();
 
 
-                $X = $X + $W / 2 + 35;
+                $X = $X + $W / 2;
                 $X = $X / $size[0];
                 $Y = $Y / $size[1];
 
