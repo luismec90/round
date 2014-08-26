@@ -15,7 +15,7 @@
 <noscript><link rel="stylesheet" href="assets/libs/jQueryFileUpload/css/jquery.fileupload-noscript.css"></noscript>
 <noscript><link rel="stylesheet" href="assets/libs/jQueryFileUpload/css/jquery.fileupload-ui-noscript.css"></noscript
 <!-- jCrop -->
-<link rel="stylesheet" href="assets/libs/jcrop/css/jquery.Jcrop.min.css" type="text/css" />
+ <link rel="stylesheet" href="assets/libs/jcrop/css/jquery.Jcrop.min.css" type="text/css" />
 @stop
 
 @section('js')
@@ -182,7 +182,7 @@
     <i class="glyphicon glyphicon-download-alt"></i>
     <span>Descargar</span>
     </a>
-    <a data-original='{%=file.originalImage%}' data-nombre='{%=file.name%}'  class="btn btn-primary arreglar">
+    <a data-original='{%=file.originalImage%}' class="btn btn-primary arreglar">
     <i class="glyphicon glyphicon-pencil"></i>
     <span>Arreglar</span>
     </a>
@@ -211,17 +211,11 @@
                 <h4 class="modal-title" id="myModalLabel">Arreglar Imágen</h4>
             </div>
             <div class="modal-body text-center">
-               
-                <input id="nombreImagen"  name="nombreImagen" type="hidden">
-                <input id="x" name="x" type="hidden">
-                <input id="y" name="y" type="hidden">
-                <input id="w" name="w" type="hidden">
-              
                 <img id="target" class="cropImage text-center" src="" >
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                <button id="botonFix" type="button" class="btn btn-primary">Enviar</button>
+                <button type="button" class="btn btn-primary">Enviar</button>
             </div>
         </div>
     </div>

@@ -67,7 +67,7 @@ class ImageController extends \BaseController {
                     "deleteType" => "DELETE",
                     "deleteUrl" => URL::to("deleteImage/$nombre"),
                     "downloadUrl" => URL::to("downloadImage/$nombre"),
-                    "name" => "$nombre",
+                    "name" => "asd.jpg",
                     "thumbnailUrl" => URL::asset("images/$nombre"),
                     "originalImage" => URL::asset("originalImages/$nombre"),
                     "url" => URL::asset("images/$nombre")));
@@ -83,13 +83,11 @@ class ImageController extends \BaseController {
         $w = Input::get('w');
 
 
-        $input = "originalImages/$nombreImagen";
+        $input = "originalImage/$nombreImagen";
         $image = new Imagick($input);
         $image->cropImage($w, $w, $x, $y);
-        $image->resizeImage(200, 200, Imagick::FILTER_LANCZOS, 1);
-        $image->roundCorners(200, 200);
+        $image->roundCorners($w, $w);
         $image->writeImage("images/$nombreImagen");
-       
     }
 
     public function download($image) {

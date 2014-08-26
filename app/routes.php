@@ -10,7 +10,7 @@
   | and give it the Closure to execute when that URI is requested.
   |
  */
-Route::get('pruebas','PruebaController@index');
+Route::get('pruebas', 'PruebaController@index');
 
 
 
@@ -18,6 +18,7 @@ Route::get('/', function() {
     return View::make('pages/home');
 });
 Route::post('uploadImage', 'ImageController@process');
+Route::post('fixImage', 'ImageController@fix');
 Route::get('uploadImage', 'ImageController@index');
 Route::get('downloadImage/{image}', 'ImageController@download');
 Route::delete('deleteImage/{image}', 'ImageController@delete');
